@@ -7,8 +7,6 @@
   #### Request sample
   ```var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
-  ```
-
 var raw = JSON.stringify({
 "value": 12.56,
 "from": "USD",
