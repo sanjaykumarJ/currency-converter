@@ -1,6 +1,10 @@
 import "dotenv/config";
 import express, { Request, Response, NextFunction } from "express";
-import { CurrencyConversionResponse, getConvertedCurrencyValue } from "./api";
+import {
+  CurrencyConversionResponse,
+  getConvertedCurrencyValue,
+  ResponseWithDate,
+} from "./api";
 
 const app = express();
 const port = 3000;
@@ -16,13 +20,15 @@ async function convertCurrency(
   next: NextFunction
 ) {
   const { body } = request;
-  const { value, from, to } = body;
+  const { value, from, to, date } = body;
   try {
     if (!value && !from && !to) {
       throw new Error(`${value},${from},${to}. Params sent is invalid`);
     }
-    const convertedResult: CurrencyConversionResponse | undefined =
-      await getConvertedCurrencyValue(value, from, to);
+    const convertedResult:
+      | CurrencyConversionResponse
+      | ResponseWithDate
+      | undefined = await getConvertedCurrencyValue(value, from, to, date);
     if (convertedResult) {
       response.status(200).send(convertedResult);
     } else {

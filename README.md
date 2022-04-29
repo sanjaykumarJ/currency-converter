@@ -2,8 +2,9 @@
 
 ## Endpoints:
 
-- convertCurrency
-  This method helps in converting the input to required currency, Please find the sample request/response below,
+##### convertCurrency
+
+- This method helps in converting the input to required currency, Please find the sample request/response below,
 
   #### Request sample
 
@@ -42,6 +43,8 @@
 
 ```
 {
-   {'yyyy-mm-dd': {'USD-INR': value}}
+    "USD_INR": {
+        "2022-04-27": value
+    }
 }
 ```
