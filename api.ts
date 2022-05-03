@@ -8,6 +8,7 @@ export type CurrencyConversionResponse = {
 export type ResponseWithDate = {
   [key: string]: { [key: string]: number };
 };
+
 export async function getConvertedCurrencyValue(
   amount: number,
   fromCurrency: string, // TODO: add all country currencies as type
